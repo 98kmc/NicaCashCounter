@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:forceDarkAllowed="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+
+        <!-- Gran Total -->
+        <LinearLayout
+            android:id="@+id/llTotal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:theme="@style/lltotal_style"
+            android:gravity="center_vertical|center_horizontal">
+
+                <TextView
+                    android:id="@+id/tvGranTotal"
+                    android:layout_width="100dp"
+                    android:layout_height="36dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="Total="
+                    android:theme="@style/tvTotal"
+                    android:textSize="30sp" />
+
+                <EditText
+                    android:id="@+id/etGranTotal"
+                    style="@style/et_style"
+                    android:layout_width="165dp"
+                    android:layout_height="40dp"
+                    android:ems="9"
+                    android:maxLength="9"
+                    android:cursorVisible="false"
+                    android:selectAllOnFocus="false"
+                    android:layout_marginStart="10dp"
+                    android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <!-- Clean Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <android.widget.Button
+                android:id="@+id/btnClean"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/custom_button"
+                android:drawableEnd="@drawable/ic_baseline_cleaning_services_24"
+                android:fontFamily="sans-serif-black"
+                android:paddingEnd="40dp"
+                android:paddingStart="40dp"
+                android:text="Limpiar"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:soundEffectsEnabled="false"/>
+        </LinearLayout>
+
+        <!-- Total 1000 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+
+                android:id="@+id/et1000"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                />
+
+            <TextView
+                android:id="@+id/tv1000"
+                style="@style/tvCordobas"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="1'000 Córdobas" />
+
+            <TextView
+                android:id="@+id/tvtotal1000"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <!-- Total 500-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+
+                android:id="@+id/et500"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/tv500"
+                android:layout_width="110dp"                android:layout_height="wrap_content"
+                android:text="500 Córdobas"
+                style="@style/tvCordobas"/>
+
+            <TextView
+                android:id="@+id/tvtotal500"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Total 200-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+
+                android:id="@+id/et200"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/tv200"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="200 Córdobas"
+                style="@style/tvCordobas"/>
+
+            <TextView
+                android:id="@+id/tvtotal200"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <!-- Total 100-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+
+                android:id="@+id/et100"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/tv100"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="100 Córdobas"
+                style="@style/tvCordobas" />
+
+            <TextView
+                android:id="@+id/tvtotal100"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <!-- Total 50-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+
+                android:id="@+id/et50"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/tv50"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="50 Córdobas"
+                style="@style/tvCordobas" />
+
+            <TextView
+                android:id="@+id/tvtotal50"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!-- Total 20-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+
+                android:id="@+id/et20"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/tv20"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="20 Córdobas"
+                style="@style/tvCordobas" />
+
+            <TextView
+                android:id="@+id/tvtotal20"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!-- Total 10-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+
+                android:id="@+id/et10"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/tv10"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                style="@style/tvCordobas"
+                android:text="10 Córdobas" />
+
+            <TextView
+                android:id="@+id/tvtotal10"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <!-- Total 5 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+
+                android:id="@+id/et5"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/tv5"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="5 Córdobas "
+                style="@style/tvCordobas" />
+
+            <TextView
+                android:id="@+id/tvtotal5"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+        <!-- Total 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et1"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:nextClusterForward="@id/et050"/>
+
+            <TextView
+                android:id="@+id/tv1"
+                style="@style/tvCordobas"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="1 Córdoba" />
+
+            <TextView
+                android:id="@+id/tvtotal1"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <!-- Total 050-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:gravity="start|center_vertical"
+            android:orientation="horizontal"
+           >
+
+            <EditText
+                android:id="@+id/et050"
+                style="@style/et_style"
+                android:layout_width="80dp"
+                android:layout_height="30dp"
+                android:focusableInTouchMode="true"
+                android:selectAllOnFocus="true"
+                android:nextFocusDown="@id/etGranTotal"
+                />
+
+            <TextView
+                android:id="@+id/tv050"
+                style="@style/tvCordobas"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:text="50 Centavos" />
+
+            <TextView
+                android:id="@+id/tvtotal050"
+                style="@style/tvTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

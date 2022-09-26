@@ -1,0 +1,47 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.NicaCashCounter" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/custom_purple</item>
+        <item name="colorPrimaryVariant">@color/custom_darkCyan</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="et_style" >
+        <item name="android:background">@drawable/et_bg_style</item>
+        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:ems">6</item>
+        <item name="android:maxLength">3</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:selectAllOnFocus">true</item>
+        <item name="android:inputType">number</item>
+        <item name="android:paddingEnd">7dp</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="tvTotal" >
+        <item name="android:background">@drawable/tv_bg_style</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:hint">@string/total</item>
+    </style>
+
+    <style name="tvCordobas">
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="lltotal_style">
+        <item name="android:background">@drawable/lltotal_sel</item>
+    </style>
+</resources>
