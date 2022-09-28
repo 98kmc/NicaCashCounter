@@ -10,6 +10,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.getSystemService
 import androidx.core.widget.addTextChangedListener
+import com.example.nicacashcounter.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
 
 
@@ -28,172 +29,174 @@ class MainActivity : AppCompatActivity() {
         "1000_cordobas" to 1000f,
     )
 
+    private lateinit var main: ActivityMainBinding
     companion object{
         //et050 is a global variable cause need to referenciate out of OnCreate metod
-
-
+        @SuppressLint("StaticFieldLeak")
         private lateinit var mainContext: Context
 
     }
+
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         mainContext = this
 
-        var btnClean = findViewById<Button>(R.id.btnClean)
-        var llTotal = findViewById<LinearLayout>(R.id.llTotal)
-        llTotal.isEnabled = false
-        var etGrandTotal = findViewById<EditText>(R.id.etGranTotal)
+        main = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(main.root)
 
-        var et050 = findViewById<EditText>(R.id.et050)
-        var etUno = findViewById<EditText>(R.id.et1)
-        var etCinco = findViewById<EditText>(R.id.et5)
-        var etDiez = findViewById<EditText>(R.id.et10)
-        var etVeinte = findViewById<EditText>(R.id.et20)
-        var etCincuenta = findViewById<EditText>(R.id.et50)
-        var etCien = findViewById<EditText>(R.id.et100)
-        var etDoscientos = findViewById<EditText>(R.id.et200)
-        var etQuinientos = findViewById<EditText>(R.id.et500)
-        var etMil = findViewById<EditText>(R.id.et1000)
-        var tvTotal050 = findViewById<TextView>(R.id.tvtotal050)
-        var tvTotal1 = findViewById<TextView>(R.id.tvtotal1)
-        var tvTotal5 = findViewById<TextView>(R.id.tvtotal5)
-        var tvTotal10 = findViewById<TextView>(R.id.tvtotal10)
-        var tvTotal20 = findViewById<TextView>(R.id.tvtotal20)
-        var tvTotal50 = findViewById<TextView>(R.id.tvtotal50)
-        var tvTotal100 = findViewById<TextView>(R.id.tvtotal100)
-        var tvTotal200 = findViewById<TextView>(R.id.tvtotal200)
-        var tvTotal500 = findViewById<TextView>(R.id.tvtotal500)
-        var tvTotal1000 = findViewById<TextView>(R.id.tvtotal1000)
+        //........
 
+        //........
+
+        main.llTotal.isEnabled = false
+        //........
+
+        //........
 
         //TextView array to control the clean metod of Total Textviews
         var arrayTotales = arrayOf(
-            tvTotal050,
-            tvTotal1,
-            tvTotal5,
-            tvTotal10,
-            tvTotal20,
-            tvTotal50,
-            tvTotal100,
-            tvTotal200,
-            tvTotal500,
-            tvTotal1000
+            main.tvtotal050,
+            main.tvtotal1,
+            main.tvtotal5,
+            main.tvtotal10,
+            main.tvtotal20,
+            main.tvtotal50,
+            main.tvtotal100,
+            main.tvtotal200,
+            main.tvtotal500,
+            main.tvtotal1000
         )
         //EditText array to control the clean metod
         var arrayEts = arrayOf(
-            et050,
-            etUno,
-            etCinco,
-            etDiez,
-            etVeinte,
-            etCincuenta,
-            etCien,
-            etDoscientos,
-            etQuinientos,
-            etMil
+            main.et050,
+            main.et1,
+            main.et5,
+            main.et10,
+            main.et20,
+            main.et50,
+            main.et100,
+            main.et200,
+            main.et500,
+            main.et1000
         )
 
 
         // fun to calculate Grand Total in Float format
         fun setGrandTotal() {
             var suma = 0f
+            arrayTotales.map {
+                if (!it.text.isNullOrEmpty() && it.text != "Total") {
+                    suma += it.text.toString().toFloat()
+                    main.etGranTotal.setText(suma.toString())
+                }
+                if (suma == 0f) main.etGranTotal.text.clear()
+            }
+
+            /*
             for (it in arrayTotales) {
                 if (!it.text.isNullOrEmpty() && it.text != "Total") {
                     suma += it.text.toString().toFloat()
-                    etGrandTotal.setText(suma.toString())
+                    main.etGranTotal.setText(suma.toString())
                 }
             }
-            if (suma == 0f) etGrandTotal.text.clear()
+            if (suma == 0f) main.etGranTotal.text.clear()*/
         }
 
-        btnClean.setOnClickListener {
+        main.btnClean.setOnClickListener {
+            arrayEts.map { et ->
+                et.text.clear()
+                et.clearFocus()
+            }
+            main.etGranTotal.text.clear()
+            hide_keypad(it)
+            main.etGranTotal.clearFocus()
+            main.llTotal.isEnabled = false
+
+            /*
            for (it in arrayEts) {it.text.clear();it.clearFocus()}
             etGrandTotal.text.clear()
             hide_keypad(it)
             etGrandTotal.clearFocus()
-            llTotal.isEnabled = false
+            llTotal.isEnabled = false*/
         }
 
-        etGrandTotal.setOnTouchListener { view, _ ->
+        main.etGranTotal.setOnTouchListener { view, _ ->
             hide_keypad(view)
             true
         }
 
-        etGrandTotal.setOnFocusChangeListener { view, _ ->
+        main.etGranTotal.setOnFocusChangeListener { view, _ ->
             hide_keypad(view)
-            switchGranTotal(llTotal)
+            switchGranTotal(main.llTotal)
         }
 
-        et050.addTextChangedListener {
-            setTotal(et050, et050, tvTotal050, "50_centavos")
+        main.et050.addTextChangedListener {
+            setTotal(main.et050, main.et050, main.tvtotal050, "50_centavos")
             setGrandTotal()
         }
 
-        etUno.addTextChangedListener {
-            setTotal(et050, etUno, tvTotal1, "1_cordoba")
+        main.et1.addTextChangedListener {
+            setTotal(main.et050, main.et1, main.tvtotal1, "1_cordoba")
             setGrandTotal()
         }
 
-        etCinco.addTextChangedListener {
-            setTotal(et050, etCinco, tvTotal5, "5_cordobas")
+        main.et5.addTextChangedListener {
+            setTotal(main.et050, main.et5, main.tvtotal5, "5_cordobas")
             setGrandTotal()
         }
 
-        etDiez.addTextChangedListener {
-            setTotal(et050, etDiez, tvTotal10, "10_cordobas")
+        main.et10.addTextChangedListener {
+            setTotal(main.et050, main.et10, main.tvtotal10, "10_cordobas")
             setGrandTotal()
         }
 
-        etVeinte.addTextChangedListener {
-            setTotal(et050, etVeinte, tvTotal20, "20_cordobas")
+        main.et20.addTextChangedListener {
+            setTotal(main.et050, main.et20, main.tvtotal20, "20_cordobas")
             setGrandTotal()
         }
 
-        etCincuenta.addTextChangedListener {
-            setTotal(et050, etCincuenta, tvTotal50, "50_cordobas")
+        main.et50.addTextChangedListener {
+            setTotal(main.et050, main.et50, main.tvtotal50, "50_cordobas")
             setGrandTotal()
         }
 
-        etCien.addTextChangedListener {
-            setTotal(et050, etCien, tvTotal100, "100_cordobas")
+        main.et100.addTextChangedListener {
+            setTotal(main.et050, main.et100, main.tvtotal100, "100_cordobas")
             setGrandTotal()
         }
 
-        etDoscientos.addTextChangedListener {
-            setTotal(et050, etDoscientos, tvTotal200, "200_cordobas")
+        main.et200.addTextChangedListener {
+            setTotal(main.et050, main.et200, main.tvtotal200, "200_cordobas")
             setGrandTotal()
         }
-        etQuinientos.addTextChangedListener {
-            setTotal(et050, etQuinientos, tvTotal500, "500_cordobas")
+        main.et500.addTextChangedListener {
+            setTotal(main.et050, main.et500, main.tvtotal500, "500_cordobas")
             setGrandTotal()
         }
 
-        etMil.addTextChangedListener {
-            setTotal(et050, etMil, tvTotal1000, "1000_cordobas")
+        main.et1000.addTextChangedListener {
+            setTotal(main.et050, main.et1000, main.tvtotal1000, "1000_cordobas")
             setGrandTotal()
         }
     }
 
-    private fun toMultiply(amount:Float, value:String): Float = amount * values.get(value)!!
+    private fun toMultiply(amount:Float, value:String): Float = amount * values[value]!!
 
     private fun setTotal(compare: EditText,et:EditText,tv:TextView, value:String){
-        if (et.text.isNullOrEmpty()){tv.text = "Total"}
-        else{
+        if (!et.text.isNullOrEmpty()) {
             if (et == compare) tv.text = toMultiply(et.text.toString().toFloat(), value).toString()
             else tv.text = toMultiply(et.text.toString().toFloat(), value).roundToInt().toString()
-
-        }
+        } else {tv.text = "Total"}
     }
 
     private fun switchGranTotal(ll: LinearLayout)
     {
-        if (ll.isEnabled) ll.isEnabled=false
-        else {
-            if (!ll.isEnabled) ll.isEnabled= true
+        when {
+            ll.isEnabled -> ll.isEnabled=false
+            else -> if (!ll.isEnabled) ll.isEnabled= true
         }
     }
     private fun hide_keypad(v:View){
