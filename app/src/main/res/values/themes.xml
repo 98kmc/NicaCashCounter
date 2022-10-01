@@ -18,7 +18,8 @@
 
     <style name="et_style" >
         <item name="android:background">@drawable/et_bg_style</item>
-        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">15dp</item>
         <item name="android:ems">6</item>
         <item name="android:maxLength">3</item>
         <item name="android:fontFamily">sans-serif-black</item>
@@ -29,19 +30,23 @@
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="tvTotal" >
-        <item name="android:background">@drawable/tv_bg_style</item>
-        <item name="android:layout_marginStart">15dp</item>
-        <item name="android:hint">@string/total</item>
-        <item name="android:textSize">18sp</item>
-    </style>
-
     <style name="tvCordobas">
-        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">5dp</item>
         <item name="android:fontFamily">sans-serif-black</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textAlignment">center</item>
     </style>
+
+    <style name="tvTotal" >
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:background">@drawable/tv_bg_style</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:hint">@string/total</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
     <style name="lltotal_style">
         <item name="android:background">@drawable/lltotal_sel</item>
     </style>
