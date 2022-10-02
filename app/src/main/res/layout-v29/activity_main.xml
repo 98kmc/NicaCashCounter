@@ -5,50 +5,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="40dp"
+    android:layout_marginTop="4dp"
     tools:context=".MainActivity"
     android:forceDarkAllowed="false">
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <!-- Guides -->
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/glScrollStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.15" />
-
+            app:layout_constraintGuide_percent="0.1" />
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/glScrollEnd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.85" />
-
+            app:layout_constraintGuide_percent="0.9" />
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/glTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.051983584" />
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/glEtTop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="173dp" />
-
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/glBotton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.98" />
-
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.65" />
         <!-- Barriers -->
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/brrllTotal"
@@ -58,7 +57,6 @@
             app:constraint_referenced_ids="llTotal"
             tools:layout_editor_absoluteX="26dp"
             tools:layout_editor_absoluteY="87dp" />
-
         <!-- Gran Total -->
         <LinearLayout
             android:id="@+id/llTotal"
@@ -94,14 +92,13 @@
                 android:textSize="30sp" />
 
         </LinearLayout>
-
         <!-- Clean Button -->
         <android.widget.Button
             android:id="@+id/btnClean"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:background="@drawable/custom_button"
             android:drawableEnd="@drawable/ic_baseline_cleaning_services_24"
@@ -116,10 +113,10 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/brrllTotal" />
-
         <!-- 1000 -->
         <EditText
             android:id="@+id/et1000"
+            android:tag="mil"
             style="@style/et_style"
             android:layout_width="80dp"
             android:layout_height="30dp"
@@ -129,7 +126,6 @@
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toTopOf="@id/glEtTop"
             app:layout_constraintVertical_chainStyle="spread_inside" />
-
         <TextView
             android:id="@+id/tv1000"
             style="@style/tvCordobas"
@@ -137,22 +133,21 @@
             android:layout_height="wrap_content"
             android:text="@string/mil"
             app:layout_constraintBottom_toTopOf="@id/tv500"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal1000"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et1000"
             app:layout_constraintTop_toTopOf="@id/glEtTop"
             app:layout_constraintVertical_chainStyle="spread_inside" />
-
         <TextView
             android:id="@+id/tvtotal1000"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal500"
             app:layout_constraintEnd_toEndOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv1000"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toTopOf="@id/glEtTop"
             app:layout_constraintVertical_chainStyle="spread_inside" />
-
         <!-- 500-->
         <EditText
             android:id="@+id/et500"
@@ -164,7 +159,6 @@
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/et1000" />
-
         <TextView
             android:id="@+id/tv500"
             style="@style/tvCordobas"
@@ -172,20 +166,19 @@
             android:layout_height="wrap_content"
             android:text="@string/quinientos"
             app:layout_constraintBottom_toTopOf="@id/tv200"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal500"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et500"
             app:layout_constraintTop_toBottomOf="@id/tv1000" />
-
         <TextView
             android:id="@+id/tvtotal500"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal200"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv500"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal1000" />
-
         <!-- 200-->
         <EditText
             android:id="@+id/et200"
@@ -196,7 +189,6 @@
             app:layout_constraintEnd_toStartOf="@id/tv200"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/et500" />
-
         <TextView
             android:id="@+id/tv200"
             style="@style/tvCordobas"
@@ -204,20 +196,19 @@
             android:layout_height="wrap_content"
             android:text="@string/doscientos"
             app:layout_constraintBottom_toTopOf="@id/tv100"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal200"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et200"
             app:layout_constraintTop_toBottomOf="@id/tv500" />
-
         <TextView
             android:id="@+id/tvtotal200"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal100"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv200"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal500" />
-
         <!-- 100-->
         <EditText
             android:id="@+id/et100"
@@ -228,7 +219,6 @@
             app:layout_constraintEnd_toStartOf="@id/tv100"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/et200" />
-
         <TextView
             android:id="@+id/tv100"
             style="@style/tvCordobas"
@@ -236,20 +226,19 @@
             android:layout_height="wrap_content"
             android:text="@string/cien"
             app:layout_constraintBottom_toTopOf="@id/tv50"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal100"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et100"
             app:layout_constraintTop_toBottomOf="@id/tv200" />
-
         <TextView
             android:id="@+id/tvtotal100"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal50"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv100"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal200" />
-
         <!-- 50-->
         <EditText
             android:id="@+id/et50"
@@ -260,7 +249,6 @@
             app:layout_constraintEnd_toStartOf="@id/tv50"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/et100" />
-
         <TextView
             android:id="@+id/tv50"
             style="@style/tvCordobas"
@@ -268,20 +256,19 @@
             android:layout_height="wrap_content"
             android:text="@string/cincuenta"
             app:layout_constraintBottom_toTopOf="@id/tv20"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal50"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et50"
             app:layout_constraintTop_toBottomOf="@id/tv100" />
-
         <TextView
             android:id="@+id/tvtotal50"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal20"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv50"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal100" />
-
         <!-- 20-->
         <EditText
             android:id="@+id/et20"
@@ -292,7 +279,6 @@
             app:layout_constraintEnd_toStartOf="@id/tv20"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/et50" />
-
         <TextView
             android:id="@+id/tv20"
             style="@style/tvCordobas"
@@ -300,20 +286,19 @@
             android:layout_height="wrap_content"
             android:text="@string/veinte"
             app:layout_constraintBottom_toTopOf="@id/tv10"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal20"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et20"
             app:layout_constraintTop_toBottomOf="@id/tv50" />
-
         <TextView
             android:id="@+id/tvtotal20"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal10"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv20"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal50" />
-
         <!-- 10-->
         <EditText
             android:id="@+id/et10"
@@ -332,20 +317,19 @@
             android:layout_height="wrap_content"
             android:text="@string/diez"
             app:layout_constraintBottom_toTopOf="@id/tv5"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal10"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et10"
             app:layout_constraintTop_toBottomOf="@id/tv20" />
-
         <TextView
             android:id="@+id/tvtotal10"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal5"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv10"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal20" />
-
         <!-- 5-->
         <EditText
             android:id="@+id/et5"
@@ -356,7 +340,6 @@
             app:layout_constraintEnd_toStartOf="@id/tv5"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/et10" />
-
         <TextView
             android:id="@+id/tv5"
             style="@style/tvCordobas"
@@ -364,20 +347,19 @@
             android:layout_height="wrap_content"
             android:text="@string/cinco"
             app:layout_constraintBottom_toTopOf="@id/tv1"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal10"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et5"
             app:layout_constraintTop_toBottomOf="@id/tv10" />
-
         <TextView
             android:id="@+id/tvtotal5"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal1"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv5"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal10" />
-
         <!-- 1-->
         <EditText
             android:id="@+id/et1"
@@ -388,7 +370,6 @@
             app:layout_constraintEnd_toStartOf="@id/tv1"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/et5" />
-
         <TextView
             android:id="@+id/tv1"
             style="@style/tvCordobas"
@@ -396,20 +377,19 @@
             android:layout_height="wrap_content"
             android:text="@string/uno"
             app:layout_constraintBottom_toTopOf="@id/tv050"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal5"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et1"
             app:layout_constraintTop_toBottomOf="@id/tv5" />
-
         <TextView
             android:id="@+id/tvtotal1"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal050"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv1"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal5" />
-
         <!-- 050-->
         <EditText
             android:id="@+id/et050"
@@ -420,7 +400,6 @@
             app:layout_constraintEnd_toStartOf="@id/tv050"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/et1" />
-
         <TextView
             android:id="@+id/tv050"
             style="@style/tvCordobas"
@@ -428,20 +407,19 @@
             android:layout_height="wrap_content"
             android:text="@string/centavos"
             app:layout_constraintBottom_toTopOf="@id/tv025"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal1"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et050"
             app:layout_constraintTop_toBottomOf="@id/tv1" />
-
         <TextView
             android:id="@+id/tvtotal050"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toTopOf="@id/tvtotal025"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv050"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal1" />
-
         <!-- 025-->
         <EditText
             android:id="@+id/et025"
@@ -455,7 +433,6 @@
             app:layout_constraintEnd_toStartOf="@id/tv025"
             app:layout_constraintStart_toEndOf="@id/glScrollStart"
             app:layout_constraintTop_toBottomOf="@id/et050" />
-
         <TextView
             android:id="@+id/tv025"
             style="@style/tvCordobas"
@@ -463,26 +440,18 @@
             android:layout_height="wrap_content"
             android:text="@string/centavos2"
             app:layout_constraintBottom_toBottomOf="@id/glBotton"
-            app:layout_constraintEnd_toStartOf="@id/tvtotal050"
+            app:layout_constraintEnd_toStartOf="@id/glEnd"
             app:layout_constraintStart_toEndOf="@id/et025"
             app:layout_constraintTop_toBottomOf="@id/tv050" />
-
         <TextView
             android:id="@+id/tvtotal025"
             style="@style/tvTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_bias="1"
             app:layout_constraintBottom_toBottomOf="@id/glBotton"
             app:layout_constraintEnd_toStartOf="@id/glScrollEnd"
-            app:layout_constraintStart_toEndOf="@id/tv025"
+            app:layout_constraintStart_toEndOf="@id/glEnd"
             app:layout_constraintTop_toBottomOf="@id/tvtotal050" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-     
-
-    
 </ScrollView>

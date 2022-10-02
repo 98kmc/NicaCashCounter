@@ -16,7 +16,9 @@ import kotlin.math.roundToInt
 
 class MainActivity : AppCompatActivity() {
 
+    //Currency Type
     var values =mapOf(
+        "25c" to 0.25f,
         "50_centavos" to 0.50f,
         "1_cordoba" to 1f,
         "5_cordobas" to 5f,
@@ -30,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     )
 
     private lateinit var main: ActivityMainBinding
+    private lateinit var arrayTotales: Array<TextView>
+    private lateinit var arrayEts: Array<EditText>
     companion object{
         //et050 is a global variable cause need to referenciate out of OnCreate metod
         @SuppressLint("StaticFieldLeak")
@@ -47,17 +51,11 @@ class MainActivity : AppCompatActivity() {
         main = ActivityMainBinding.inflate(layoutInflater)
         setContentView(main.root)
 
-        //........
-
-        //........
-
         main.llTotal.isEnabled = false
-        //........
-
-        //........
 
         //TextView array to control the clean metod of Total Textviews
-        var arrayTotales = arrayOf(
+        arrayTotales = arrayOf(
+            main.tvtotal025,
             main.tvtotal050,
             main.tvtotal1,
             main.tvtotal5,
@@ -70,7 +68,8 @@ class MainActivity : AppCompatActivity() {
             main.tvtotal1000
         )
         //EditText array to control the clean metod
-        var arrayEts = arrayOf(
+        arrayEts = arrayOf(
+            main.et025,
             main.et050,
             main.et1,
             main.et5,
@@ -82,7 +81,6 @@ class MainActivity : AppCompatActivity() {
             main.et500,
             main.et1000
         )
-
 
         // fun to calculate Grand Total in Float format
         fun setGrandTotal() {
@@ -133,6 +131,10 @@ class MainActivity : AppCompatActivity() {
             switchGranTotal(main.llTotal)
         }
 
+        main.et025.addTextChangedListener {
+            setTotal(main.et050, main.et025, main.tvtotal025, "25c")
+            setGrandTotal()
+        }
         main.et050.addTextChangedListener {
             setTotal(main.et050, main.et050, main.tvtotal050, "50_centavos")
             setGrandTotal()
@@ -181,13 +183,34 @@ class MainActivity : AppCompatActivity() {
             setTotal(main.et050, main.et1000, main.tvtotal1000, "1000_cordobas")
             setGrandTotal()
         }
+
+        main.et1000.requestFocus()
     }
 
+    /*
+    fun setTextChanged(et: View ){
+        when(et.tag){
+            "1tou"-> setTotal(main.et050, main.et1000, main.tvtotal1000, "1000_cordobas")
+            "fivehou"-> setTotal(main.et050, main.et500, main.tvtotal500, "500_cordobas")
+            "twohou"-> setTotal(main.et050, main.et200, main.tvtotal200, "200_cordobas")
+            "onehou"-> setTotal(main.et050, main.et100, main.tvtotal100, "100_cordobas")
+            "fift"-> setTotal(main.et050, main.et50, main.tvtotal50, "50_cordobas")
+            "twen"-> setTotal(main.et050, main.et20, main.tvtotal20, "20_cordobas")
+            "ten"->setTotal(main.et050, main.et10, main.tvtotal10, "10_cordobas")
+            "five"-> setTotal(main.et050, main.et5, main.tvtotal5, "5_cordobas")
+            "one"-> setTotal(main.et050, main.et1, main.tvtotal1, "1_cordoba")
+            "half"->  setTotal(main.et050, main.et050, main.tvtotal050, "50_centavos")
+            "twnfiv"->   setTotal(main.et050, main.et025, main.tvtotal025, "25_centavos")
+
+        }
+        setGrandTotal()
+    }
+    */
     private fun toMultiply(amount:Float, value:String): Float = amount * values[value]!!
 
     private fun setTotal(compare: EditText,et:EditText,tv:TextView, value:String){
         if (!et.text.isNullOrEmpty()) {
-            if (et == compare) tv.text = toMultiply(et.text.toString().toFloat(), value).toString()
+            if (et == main.et050 || et == main.et025) tv.text = toMultiply(et.text.toString().toFloat(), value).toString()
             else tv.text = toMultiply(et.text.toString().toFloat(), value).roundToInt().toString()
         } else {tv.text = "Total"}
     }
@@ -199,6 +222,7 @@ class MainActivity : AppCompatActivity() {
             else -> if (!ll.isEnabled) ll.isEnabled= true
         }
     }
+
     private fun hide_keypad(v:View){
         val imm = v.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(v.windowToken,0)

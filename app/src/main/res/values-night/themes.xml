@@ -5,13 +5,15 @@
 
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/black</item>
+        <item name="android:statusBarColor" >@color/black</item>
         <!-- Customize your theme here. -->
     </style>
 
     <style name="et_style" parent="Widget.AppCompat.EditText">
         <item name="android:background">@drawable/et_bg_dark_style</item>
-        <item name="android:layout_marginStart">50dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
         <item name="android:ems">6</item>
         <item name="android:maxLength">3</item>
         <item name="android:fontFamily">sans-serif-black</item>
@@ -21,24 +23,25 @@
         <item name="android:textAlignment">textEnd</item>
         <item name="android:textSize">16sp</item>
     </style>
+    <style name="tvCordobas">
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
 
     <style name="tvTotal" >
+        <item name="android:layout_marginTop">5dp</item>
         <item name="android:background">@drawable/tv_bg_dark_style</item>
-        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
         <item name="android:hint">@string/total</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorHint">@color/white</item>
-        <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="tvCordobas">
-        <item name="android:layout_marginStart">20dp</item>
-        <item name="android:fontFamily">sans-serif-black</item>
-        <item name="android:textColor">@color/custom_white</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:textSize">18sp</item>
 
-    </style>
     <style name="lltotal_style">
         <item name="android:background">@drawable/lltotal_dark_sel</item>
     </style>

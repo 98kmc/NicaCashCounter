@@ -33,6 +33,7 @@
     <style name="tvCordobas">
         <item name="android:layout_marginTop">5dp</item>
         <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
         <item name="android:fontFamily">sans-serif-black</item>
         <item name="android:textSize">18sp</item>
         <item name="android:textAlignment">center</item>
@@ -44,6 +45,7 @@
         <item name="android:layout_marginEnd">15dp</item>
         <item name="android:hint">@string/total</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:textAlignment">textEnd</item>
     </style>
 
 
